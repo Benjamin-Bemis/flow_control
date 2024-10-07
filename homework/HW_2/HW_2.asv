@@ -22,13 +22,6 @@ set(0,'DefaultLegendFontSize',fontsize)
 colors  = ["#000000","#1b9e77","#d95f02","#7570b3","#0099FF"];
 
 
-
-%% Problem 1
-u_inf = linspace(5,60,10); %m/s
-Re_range = [40,150]
-
-
-
 %% Problem 2
 Pr = 0.71;
 C1 = 0.3;
@@ -51,3 +44,27 @@ figure
 plot(Cd(:,2),Nu,"ko-")
 xlabel("$C_D$")
 ylabel("Nu")
+
+
+%% Problem 4 
+% c1 & c2 positive
+Re_crit = 0.01;
+c1 = 1;
+c2 = 1; 
+[t,dB] = ode45(@(t,B) c1*(Re_crit)*B - c2*abs(B)^2*B, [0.0001,100], 1);
+
+
+figure 
+plot(t,dB)
+yline(0.1)
+y
+
+% positive c1 -c2 
+
+c1 = 1;
+c2 = -1; 
+[t,dB] = ode45(@(t,B) c1*(Re_crit)*B - c2*abs(B)^2*B, [0.0001,0.45], 1);
+
+
+figure 
+loglog(t,dB)
