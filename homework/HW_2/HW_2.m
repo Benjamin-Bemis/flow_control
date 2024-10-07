@@ -58,6 +58,8 @@ figure
 plot(t,dB)
 yline(0.1)
 ylim([0,1])
+xlabel("$t$ (sec)")
+ylabel("$\frac{dB}{dt}$")
 
 % positive c1 -c2 
 
@@ -68,3 +70,5 @@ c2 = -1;
 
 figure 
 loglog(t,dB)
+xlabel("$t$ (sec)")
+ylabel("$\frac{dB}{dt}$")
